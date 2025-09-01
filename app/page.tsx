@@ -20,6 +20,9 @@ import {
   TrendingUp,
   Zap,
   Target,
+  PlaneTakeoffIcon,
+  WholeWord,
+  Globe,
 } from "lucide-react"
 
 import Image from "next/image"
@@ -401,12 +404,12 @@ export default function LandingPage() {
                 <Button size="lg" className="bg-secondary hover:bg-secondary/90 flex-1">
 
                   <a
-                    href="/apk/mi-negocio-pro.apk"
+                    href="https://mi-negocio-pro.pages.dev/"
                     download
                     className="flex items-center gap-2 w-full justify-center"
                   >
-                    <Download className="h-5 w-5" />
-                    Descargar para Android
+                    <Globe className="h-5 w-5" />
+                    Ir a la Web
                   </a>
                 </Button>
 
@@ -557,10 +560,17 @@ export default function LandingPage() {
                 complicaciones ni costos elevados.
               </p>
               <div className="flex space-x-4">
-                {/* <Button size="sm" variant="outline">
-                  <Download className="mr-2 h-4 w-4" />
-                  iOS
-                </Button> */}
+                <Button size="sm" variant="outline">
+                  <Link
+                    href="https://mi-negocio-pro.pages.dev/"
+                    className="flex items-center gap-2"
+                    target="_blank"
+                  >
+                    <Globe className="mr-2 h-4 w-4" />
+                    Web
+                  </Link>
+
+                </Button>
                 <Button size="sm" variant="outline">
                   <a href="/apk/mi-negocio-pro.apk" download className="flex items-center gap-2">
                     <Download className="mr-2 h-4 w-4" />
