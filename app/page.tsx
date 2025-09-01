@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import ReactPlayer from "react-player"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
@@ -31,6 +32,7 @@ import { QRCodeCanvas } from "qrcode.react"
 
 export default function LandingPage() {
   const [qrUrl, setQrUrl] = useState("https://mi-negocio-pro.vercel.app/apk/mi-negocio-pro.apk")
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-primary/5">
@@ -372,13 +374,19 @@ export default function LandingPage() {
           <p className="text-xl text-muted-foreground text-pretty mb-12 max-w-2xl mx-auto">
             Descubre cómo nuestra app puede transformar la gestión de tu negocio en solo 2 minutos
           </p>
-
-          <div className="relative bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8 aspect-video flex items-center justify-center">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mb-4 mx-auto hover:bg-primary/90 transition-colors cursor-pointer">
-                <Play className="h-8 w-8 text-white ml-1" />
-              </div>
-              <p className="text-muted-foreground">Haz clic para ver el video demo</p>
+          <div className="flex items-center justify-center">
+            <div className="w-full max-w-2xl aspect-video bg-white rounded-2xl shadow-lg overflow-hidden border-4 border-primary/20">
+              <ReactPlayer
+                src="https://youtu.be/dbTY_vfaYlI"
+                controls
+                width="100%"
+                height="100%"
+                className="!rounded-2xl !bg-white"
+                light="/images/image.png"
+                playIcon={<Play className="h-16 w-16 text-primary mx-auto" />}
+                playing={videoPlaying}
+                onClickPreview={() => setVideoPlaying(true)}
+              />
             </div>
           </div>
         </div>
