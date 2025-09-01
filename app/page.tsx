@@ -27,9 +27,10 @@ import {
 
 import Image from "next/image"
 import Link from "next/link"
+import { QRCodeCanvas } from "qrcode.react"
 
 export default function LandingPage() {
-  const [qrUrl, setQrUrl] = useState("")
+  const [qrUrl, setQrUrl] = useState("https://mi-negocio-pro.vercel.app/apk/mi-negocio-pro.apk")
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-primary/5">
@@ -420,7 +421,6 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* QR Code Section */}
             <Card className="p-6">
               <CardHeader className="text-center pb-4">
                 <CardTitle className="flex items-center justify-center gap-2">
@@ -433,7 +433,7 @@ export default function LandingPage() {
                   <Label htmlFor="qr-url">URL de descarga</Label>
                   <Input
                     id="qr-url"
-                    placeholder="https://play.google.com/store/apps/..."
+                    placeholder="https://mi-negocio-pro.vercel.app/apk/mi-negocio-pro.apk"
                     value={qrUrl}
                     onChange={(e) => setQrUrl(e.target.value)}
                   />
@@ -441,7 +441,20 @@ export default function LandingPage() {
                 <div className="bg-muted rounded-lg p-8 flex items-center justify-center aspect-square">
                   {qrUrl ? (
                     <div className="text-center">
-                      <QrCode className="h-24 w-24 text-primary mx-auto mb-2" />
+                      {/* QR generado (más grande: 256px) */}
+                      <QRCodeCanvas
+                        value={qrUrl}
+                        size={256}
+                        style={{ margin: "0 auto 0.5rem auto", display: "block" }}
+                        imageSettings={{
+                          src: "/images/logo.png", // Imagen del dinosaurio de Google
+                          x: undefined,
+                          y: undefined,
+                          height: 64,
+                          width: 64,
+                          excavate: true
+                        }}
+                      />
                       <p className="text-sm text-muted-foreground">Código QR generado</p>
                     </div>
                   ) : (
