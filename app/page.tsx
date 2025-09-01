@@ -409,7 +409,7 @@ export default function LandingPage() {
                     className="flex items-center gap-2 w-full justify-center"
                   >
                     <Globe className="h-5 w-5" />
-                    Ir a la Web
+                    Ir a la Web App no editable
                   </a>
                 </Button>
 
@@ -567,7 +567,7 @@ export default function LandingPage() {
                     target="_blank"
                   >
                     <Globe className="mr-2 h-4 w-4" />
-                    Web
+                    Ver demo Web no editable
                   </Link>
 
                 </Button>
